@@ -1,5 +1,6 @@
 package com.intellij.cleanCodeInspection.methodInspections;
 
+import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.*;
@@ -22,6 +23,15 @@ public class TooLargeMethod extends BaseJavaLocalInspectionTool {
     public String getShortName() {
         return "TooLargeMethod";
     }
+
+    @NotNull
+    public String getGroupDisplayName() {
+        return GroupNames.BUGS_GROUP_NAME;
+    }
+
+    @NotNull
+    public String getDisplayName() {
+        return "Method should not have more than "+ MAX_STATEMENTS +" statements";    }
 
     @NotNull
     @Override

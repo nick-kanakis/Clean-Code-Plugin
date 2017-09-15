@@ -1,10 +1,8 @@
 package com.intellij.cleanCodeInspection.methodInspections;
 
+import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
-import com.intellij.codeInspection.LocalQuickFix;
-import com.intellij.codeInspection.ProblemDescriptor;
 import com.intellij.codeInspection.ProblemsHolder;
-import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public class TooManyArgumentsInspection extends BaseJavaLocalInspectionTool {
 
-    private static final int MAX_PARAMETER_COUNT = 3;
+    private static final int MAX_PARAMETERS = 3;
     private static final String ERROR_MESSAGE ="Too many parameters.";
 
     @Override
@@ -24,6 +22,16 @@ public class TooManyArgumentsInspection extends BaseJavaLocalInspectionTool {
     @NotNull
     public String getShortName() {
         return "TooManyArguments";
+    }
+
+    @NotNull
+    public String getGroupDisplayName() {
+        return GroupNames.BUGS_GROUP_NAME;
+    }
+
+    @NotNull
+    public String getDisplayName() {
+        return "Method should not have more than "+ MAX_PARAMETERS +" arguments";
     }
 
     @NotNull
@@ -40,7 +48,7 @@ public class TooManyArgumentsInspection extends BaseJavaLocalInspectionTool {
     private void checkParameters(PsiParameterList parameterList, ProblemsHolder holder) {
         if(parameterList == null)
             return;
-        if(parameterList.getParametersCount()> MAX_PARAMETER_COUNT){
+        if(parameterList.getParametersCount()> MAX_PARAMETERS){
             registerProblem(parameterList, holder);
         }
     }
