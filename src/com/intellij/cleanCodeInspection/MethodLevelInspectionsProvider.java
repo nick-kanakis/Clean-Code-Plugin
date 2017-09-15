@@ -2,6 +2,7 @@ package com.intellij.cleanCodeInspection;
 
 import com.intellij.cleanCodeInspection.methodInspections.TooLargeMethod;
 import com.intellij.cleanCodeInspection.methodInspections.TooManyArgumentsInspection;
+import com.intellij.cleanCodeInspection.methodInspections.TooLongStatement;
 import com.intellij.codeInspection.InspectionToolProvider;
 
 /**
@@ -12,7 +13,8 @@ public class MethodLevelInspectionsProvider implements InspectionToolProvider {
     public Class[] getInspectionClasses() {
         return new Class[]{
                 TooManyArgumentsInspection.class,
-                TooLargeMethod.class
+                TooLargeMethod.class,
+                TooLongStatement.class
         };
     }
 }
