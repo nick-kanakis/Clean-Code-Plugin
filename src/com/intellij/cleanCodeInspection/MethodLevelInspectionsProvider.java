@@ -1,5 +1,6 @@
 package com.intellij.cleanCodeInspection;
 
+import com.intellij.cleanCodeInspection.TooManyArgumentsInspection;
 import com.intellij.codeInspection.InspectionToolProvider;
 
 /**

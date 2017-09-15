@@ -15,12 +15,15 @@ public class TooManyArgumentsInspection extends BaseJavaLocalInspectionTool {
 
     private static final int MAX_PARAMETER_COUNT = 3;
     private static final String ERROR_MESSAGE ="Too many parameters.";
-    private static  String SOLUTION_MESSAGE ="Consider breaking method into smaller ones";
-    private final LocalQuickFix FIX = new TooManyArgumentsQuickFix();
 
     @Override
     public boolean isEnabledByDefault() {
         return true;
+    }
+
+    @NotNull
+    public String getShortName() {
+        return "TooManyArguments";
     }
 
     @NotNull
@@ -43,24 +46,6 @@ public class TooManyArgumentsInspection extends BaseJavaLocalInspectionTool {
     }
 
     private void registerProblem(PsiElement parameterList, ProblemsHolder holder) {
-        holder.registerProblem(parameterList, ERROR_MESSAGE, FIX);
+        holder.registerProblem(parameterList, ERROR_MESSAGE);
     }
-
-    private static class TooManyArgumentsQuickFix implements LocalQuickFix{
-        //todo: fix solution message.
-        @NotNull
-        public String getName() {
-            return SOLUTION_MESSAGE;
-        }
-
-        @NotNull
-        public String getFamilyName() {
-            return getName();
-        }
-
-        public void applyFix(@NotNull Project project, @NotNull ProblemDescriptor descriptor) {
-
-        }
-    }
-
 }
