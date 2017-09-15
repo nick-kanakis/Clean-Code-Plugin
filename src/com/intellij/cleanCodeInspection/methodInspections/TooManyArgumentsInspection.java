@@ -1,4 +1,4 @@
-package com.intellij.cleanCodeInspection;
+package com.intellij.cleanCodeInspection.methodInspections;
 
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalQuickFix;

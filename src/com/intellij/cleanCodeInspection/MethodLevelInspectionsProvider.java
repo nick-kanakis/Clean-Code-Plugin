@@ -1,6 +1,7 @@
 package com.intellij.cleanCodeInspection;
 
-import com.intellij.cleanCodeInspection.TooManyArgumentsInspection;
+import com.intellij.cleanCodeInspection.methodInspections.TooLargeMethod;
+import com.intellij.cleanCodeInspection.methodInspections.TooManyArgumentsInspection;
 import com.intellij.codeInspection.InspectionToolProvider;
 
 /**
@@ -10,7 +11,8 @@ public class MethodLevelInspectionsProvider implements InspectionToolProvider {
     @Override
     public Class[] getInspectionClasses() {
         return new Class[]{
-                TooManyArgumentsInspection.class
+                TooManyArgumentsInspection.class,
+                TooLargeMethod.class
         };
     }
 }
